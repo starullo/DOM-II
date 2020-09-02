@@ -34,15 +34,16 @@ blocks.forEach(block=>{
 
 
 
+
 blocks.forEach(block=>{
     block.addEventListener('mousedown', obj=>{
         const int1 = setInterval(()=>{
             obj.target.style.left = (parseInt(obj.target.style.left) + 1) + 'px';
            }, 10);
+           blocks.forEach(block=>{
+            block.addEventListener('mouseup', obj=>{
+                clearInterval(int1);
+            })
+           });
+        });
     });
-});
-blocks.forEach(block=>{
-    block.addEventListener('mouseup', obj=>{
-        clearInterval(int1);
-    })
-})
