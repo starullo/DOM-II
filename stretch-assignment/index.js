@@ -32,20 +32,17 @@ blocks.forEach(block=>{
     });
 });
 
-let int = setInterval(()=>{
-    obj.target.style.left = (parseInt(obj.target.style.left) + 10) + 'px';
-   }, 100);
+
 
 blocks.forEach(block=>{
     block.addEventListener('mousedown', obj=>{
-        int();
+        const int1 = setInterval(()=>{
+            obj.target.style.left = (parseInt(obj.target.style.left) + 1) + 'px';
+           }, 10);
     });
 });
 blocks.forEach(block=>{
     block.addEventListener('mouseup', obj=>{
-        obj.target.style.left = '1px';
-        const int2 = setInterval(()=>{
-            obj.target.style.right = (parseInt(obj.target.style.right) + 10) + 'px';
-           }, 100);
+        clearInterval(int1);
     })
 })

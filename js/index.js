@@ -72,3 +72,25 @@ window.addEventListener('contextmenu', obj=>{
         body.style.backgroundColor = 'white';
     }
 });
+
+/* PREVENTING EVENT PROPAGATION */
+
+const contPick = document.querySelector('.content-pick div.destination:first-of-type');
+contPick.addEventListener('click', obj=>{
+    contPick.style.backgroundColor = 'yellow';
+})
+
+const button = document.querySelector('.content-pick div.destination:first-of-type .btn');
+button.addEventListener('click', obj=>{
+    obj.target.style.backgroundColor = 'red';
+    obj.stopPropagation();
+});
+
+/* PREVENT DEFAULT */
+
+const navs = document.querySelectorAll('a');
+navs.forEach(item=>{
+    item.addEventListener('click', obj=>{
+        obj.preventDefault;
+    })
+});
